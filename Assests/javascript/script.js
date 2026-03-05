@@ -11,7 +11,7 @@
   });
 
   // TYPEWRITER
-  var roles = ['Full Stack Developer','UI/UX Designer','Freelancer'];
+  var roles = ['Full Stack Developer','UI/UX Designer','Freelancer','Technical Trainer'];
   var ri=0, ci=0, del=false;
   var tw = document.getElementById('typewriter');
   function type(){
