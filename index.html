@@ -11,7 +11,7 @@
     rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="icon" href="Assests/Images/iocn img.png">
-  <style>
+ <style>
     :root {
       --bg: #0a0a0a;
       --surface: #111;
@@ -638,23 +638,41 @@
     .skill-pill {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 7px 14px;
+      border-radius: 10px;
+      padding: 8px 14px;
       font-size: .82rem;
       font-weight: 500;
-      transition: all .2s;
+      transition: all .25s;
+      cursor: default;
     }
 
     .skill-pill:hover {
-      border-color: rgba(232, 255, 71, .3);
+      border-color: rgba(232, 255, 71, .35);
       color: var(--accent);
+      background: rgba(232, 255, 71, .04);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.4);
+    }
+
+    .skill-pill img.skill-logo {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: brightness(0.9);
+      transition: filter .2s;
+    }
+
+    .skill-pill:hover img.skill-logo {
+      filter: brightness(1.15) drop-shadow(0 0 4px rgba(232,255,71,.4));
     }
 
     .skill-pill i {
       color: var(--accent2);
+      font-size: .9rem;
     }
 
     /* SEMINARS */
@@ -1340,8 +1358,20 @@
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    @media (max-width: 991px) {
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 575px) {
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .cert-card {
@@ -1352,6 +1382,8 @@
       position: relative;
       display: flex;
       flex-direction: column;
+      height: 100%;
+      min-height: 340px;
       transition: all .35s cubic-bezier(.25, .8, .25, 1);
       opacity: 0;
       transform: translateY(24px);
@@ -1388,7 +1420,7 @@
 
     /* Certificate image preview */
     .cert-img-area {
-      height: 175px;
+      height: 180px;
       position: relative;
       overflow: hidden;
       background: #0a0a0a;
@@ -2000,19 +2032,6 @@
         grid-template-columns: 1fr;
       }
 
-      .seminar-stat-row {
-        flex-wrap: wrap;
-      }
-
-      .seminar-stat {
-        flex: 1 1 45%;
-        border-right: 1px solid var(--border);
-      }
-
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
-
       .testi-img-card {
         flex: 0 0 190px;
         height: 230px;
@@ -2109,7 +2128,7 @@
               <span id="typewriter" class="typewriter"></span>
             </span>
           </h1>
-          <p class="hero-desc">Learn | Code | Design | Mentoring | Repeat</p>
+          <p class="hero-desc">Learn | Code | Design | Trainer | Repeat</p>
           <div class="hero-cta">
             <a href="#projects" class="btn-primary-c">View My Work <i class="fas fa-arrow-right"></i></a>
             <a href="#contact" class="btn-secondary-c">Get In Touch</a>
@@ -2123,13 +2142,13 @@
               <div class="stat-num">10+</div>
               <div class="stat-label">Projects</div>
             </div>
-            <div>
+            <!-- <div>
               <div class="stat-num">23k+</div>
               <div class="stat-label">Students Trained</div>
-            </div>
+            </div> -->
             <div>
               <div class="stat-num">3.5k+</div>
-              <div class="stat-label">Interns Mentored</div>
+              <div class="stat-label">Interns Trained</div>
             </div>
           </div>
         </div>
@@ -2213,6 +2232,8 @@
   </section>
 
   <!-- SKILLS -->
+ 
+  <!-- SKILLS -->
   <section id="skills">
     <div class="container">
       <div class="text-center mb-5 reveal">
@@ -2225,11 +2246,11 @@
           <div class="skill-category">
             <div class="skill-cat-title"><i class="fas fa-code me-2"></i>Frontend</div>
             <div class="skill-pills">
-              <div class="skill-pill"><i class="fab fa-html5"></i>HTML5</div>
-              <div class="skill-pill"><i class="fab fa-css3-alt"></i>CSS3</div>
-              <div class="skill-pill"><i class="fab fa-js"></i>JavaScript</div>
-              <div class="skill-pill"><i class="fab fa-react"></i>React.js</div>
-              <div class="skill-pill"><i class="fab fa-bootstrap"></i>Bootstrap</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">HTML5</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">CSS3</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">JavaScript</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">React.js</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">Bootstrap</div>
             </div>
           </div>
         </div>
@@ -2237,11 +2258,11 @@
           <div class="skill-category">
             <div class="skill-cat-title"><i class="fas fa-server me-2"></i>Backend</div>
             <div class="skill-pills">
-              <div class="skill-pill"><i class="fab fa-node-js"></i>Node.js</div>
-              <div class="skill-pill"><i class="fas fa-leaf"></i>Express.js</div>
-              <div class="skill-pill"><i class="fas fa-database"></i>MongoDB</div>
-              <div class="skill-pill"><i class="fas fa-database"></i>MySQL</div>
-              <div class="skill-pill"><i class="fab fa-php"></i>PHP</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">Node.js</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" style="filter:invert(1) brightness(0.8)">Express.js</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">MongoDB</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">MySQL</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">PHP</div>
             </div>
           </div>
         </div>
@@ -2249,10 +2270,10 @@
           <div class="skill-category">
             <div class="skill-cat-title"><i class="fas fa-palette me-2"></i>Design</div>
             <div class="skill-pills">
-              <div class="skill-pill"><i class="fab fa-figma"></i>Figma</div>
-              <div class="skill-pill"><i class="fas fa-vector-square"></i>Adobe XD</div>
-              <div class="skill-pill"><i class="fas fa-bezier-curve"></i>Illustrator</div>
-              <div class="skill-pill"><i class="fas fa-image"></i>Photoshop</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">Figma</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" alt="Adobe XD">Adobe XD</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator">Illustrator</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop">Photoshop</div>
               <div class="skill-pill"><i class="fas fa-object-group"></i>Wireframing</div>
               <div class="skill-pill"><i class="fas fa-sitemap"></i>Prototyping</div>
             </div>
@@ -2262,8 +2283,8 @@
           <div class="skill-category">
             <div class="skill-cat-title"><i class="fas fa-tools me-2"></i>Tools &amp; Others</div>
             <div class="skill-pills">
-              <div class="skill-pill"><i class="fab fa-git-alt"></i>Git</div>
-              <div class="skill-pill"><i class="fab fa-github"></i>GitHub</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">Git</div>
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter:invert(1) brightness(0.85)">GitHub</div>
               <div class="skill-pill"><i class="fas fa-code-branch"></i>REST APIs</div>
               <div class="skill-pill"><i class="fas fa-mobile"></i>Responsive</div>
             </div>
@@ -2272,6 +2293,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- SEMINARS -->
   <section id="seminars">
