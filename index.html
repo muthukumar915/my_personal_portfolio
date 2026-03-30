@@ -1847,9 +1847,9 @@
       }
 
       .seminar-glass-card {
-        width: 240px;
-        height: 310px;
-        margin: 0 -60px;
+        width: 220px;
+        height: 290px;
+        margin: 0 -55px;
       }
     }
 
@@ -1871,23 +1871,30 @@
         height: 230px;
       }
 
+      /* 2x2 wrapped grid with overlap preserved */
+      .seminar-glass-section {
+        gap: 30px;
+      }
+
       .seminar-glass-row {
-        padding: 20px 30px;
         flex-wrap: wrap;
-        gap: 16px;
+        justify-content: center;
+        padding: 10px 20px;
         min-height: unset;
+        gap: 0;
       }
 
       .seminar-glass-card {
-        width: 200px;
-        height: 260px;
-        margin: 0;
-        transform: rotate(0deg) !important;
-        flex: 0 0 calc(50% - 8px);
+        width: 160px;
+        height: 210px;
+        margin: -20px -40px;
+        flex-shrink: 0;
       }
 
+      /* hover — fan out on touch/hover */
       .seminar-glass-row:hover .seminar-glass-card {
-        margin: 0;
+        margin: 8px;
+        transform: rotate(0deg);
       }
 
       .seminar-stat-row {
@@ -1911,14 +1918,17 @@
       }
 
       .seminar-glass-card {
-        flex: 0 0 calc(50% - 8px);
-        width: auto;
-        height: 220px;
+        width: 140px;
+        height: 185px;
+        margin: -16px -34px;
       }
 
       .seminar-glass-row {
-        gap: 12px;
         padding: 10px 16px;
+      }
+
+      .seminar-glass-row:hover .seminar-glass-card {
+        margin: 6px;
       }
     }
   </style>
@@ -1975,7 +1985,7 @@
           <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
           <li class="nav-item"><a class="nav-link" href="#seminars">Seminars</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li> -->
           <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
           <li class="nav-item ms-2"><a class="btn-hire nav-link"
@@ -2001,7 +2011,7 @@
               <span id="typewriter" class="typewriter"></span>
             </span>
           </h1>
-          <p class="hero-desc">Learn | Code | Design | Trainer | Repeat</p>
+          <p class="hero-desc">I Build Products. I Design Experiences. I Grow People</p>
           <div class="hero-cta">
             <a href="#projects" class="btn-primary-c">View My Work <i class="fas fa-arrow-right"></i></a>
             <a href="#contact" class="btn-secondary-c">Get In Touch</a>
@@ -2123,7 +2133,9 @@
               <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">CSS3</div>
               <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">JavaScript</div>
               <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">React.js</div>
-              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">Bootstrap</div>
+<div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">TypeScript</div>
+<div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" alt="Redux">Redux</div>
+<div class="skill-pill"><img class="skill-logo" src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS">Tailwind CSS</div>              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">Bootstrap</div>
             </div>
           </div>
         </div>
@@ -2136,6 +2148,7 @@
               <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">MongoDB</div>
               <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">MySQL</div>
               <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">PHP</div>
+            <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="Mongoose">Mongoose</div>
             </div>
           </div>
         </div>
@@ -2156,10 +2169,12 @@
           <div class="skill-category">
             <div class="skill-cat-title"><i class="fas fa-tools me-2"></i>Tools &amp; Others</div>
             <div class="skill-pills">
+              <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman">Postman</div>
+<div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">Docker</div>
               <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">Git</div>
               <div class="skill-pill"><img class="skill-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="filter:invert(1) brightness(0.85)">GitHub</div>
               <div class="skill-pill"><i class="fas fa-code-branch"></i>REST APIs</div>
-              <div class="skill-pill"><i class="fas fa-mobile"></i>Responsive</div>
+              <!-- <div class="skill-pill"><i class="fas fa-mobile"></i>Responsive</div> -->
             </div>
           </div>
         </div>
@@ -2175,7 +2190,7 @@
         <div class="col-lg-7">
           <div class="section-label">College Outreach</div>
           <h2 class="section-title">Seminars &amp; Talks</h2>
-          <p class="section-sub">Sharing knowledge with the next generation — hover the row to expand cards.</p>
+          <p class="section-sub">Sharing knowledge with the next generation </p>
         </div>
       </div>
 
@@ -2187,23 +2202,35 @@
               onerror="this.style.display='none'">
             <i class="glass-icon fas fa-code-branch"></i>
           </div>
-          <div class="seminar-glass-card" data-text="Frontend &amp; AI" style="--r:5;">
+          <!-- <div class="seminar-glass-card" data-text="Frontend &amp; AI" style="--r:5;">
             <img class="glass-bg-img" src="Assests/Images/Kongu.jpeg" alt="Frontend AI Seminar"
               onerror="this.style.display='none'">
             <i class="glass-icon fas fa-laptop-code"></i>
-          </div>
+          </div> -->
           <div class="seminar-glass-card" data-text="MERN Stack" style="--r:25;">
             <img class="glass-bg-img" src="Assests/Images/Akshaya.png" alt="MERN Stack Seminar"
               onerror="this.style.display='none'">
             <i class="glass-icon fas fa-layer-group"></i>
           </div>
+            <div class="seminar-glass-card" data-text="Frontend" style="--r:25;">
+            <img class="glass-bg-img" src="Assests/Images/kongu girls.jpeg" alt="Frontend Seminar"
+              onerror="this.style.display='none'">
+            <i class="glass-icon fas fa-layer-group"></i>
+          </div>
+            <!-- <div class="seminar-glass-card" data-text="Mentor Award" style="--r:25;">
+            <img class="glass-bg-img" src="Assests/Images/Award.jpeg" alt="Mentor Award"
+              onerror="this.style.display='none'">
+<i class="glass-icon fas fa-award"></i>          </div> -->
         </div>
       </div>
 
+
+
+      
       <!-- Stats Row -->
       <div class="seminar-stat-row reveal" style="margin-top:56px">
         <div class="seminar-stat">
-          <div class="seminar-stat-num" data-count="3">0</div>
+          <div class="seminar-stat-num" data-count="5+">0</div>
           <div class="seminar-stat-label">Seminars Done</div>
         </div>
         <div class="seminar-stat">
@@ -2229,7 +2256,7 @@
         <div class="col">
           <div class="section-label">Portfolio</div>
           <h2 class="section-title">My Projects</h2>
-          <p class="section-sub">A selection of work across development and design</p>
+          <p class="section-sub">Work that speaks louder than a resume.</p>
         </div>
       </div>
       <div class="project-tabs reveal">
@@ -2355,7 +2382,7 @@
   <!-- ═══════════════════════════════════════════════════
      STUDENT TESTIMONIALS SECTION
 ════════════════════════════════════════════════════ -->
-  <section id="testimonials">
+  <!-- <section id="testimonials">
     <div class="container">
       <div class="row align-items-center mb-5 reveal">
         <div class="col-lg-7">
@@ -2368,11 +2395,11 @@
     </div>
 
     <div class="testimonials-outer reveal">
-      <div class="testimonials-belt">
+      <div class="testimonials-belt"> -->
 
         <!-- ── SET 1 — replace src with your actual student image paths ── -->
 
-        <div class="testi-img-card">
+        <!-- <div class="testi-img-card">
           <img src="Assests/Images/Review1.PNG" alt="Dharshini"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="testi-placeholder" style="display:none"><i class="fas fa-user"></i>
@@ -2458,10 +2485,10 @@
 
           <div class="testi-zoom-hint"><span><i class="fas fa-expand-alt"></i> View</span></div>
           <div class="testi-name-overlay"><strong></strong><span>Student</span></div>
-        </div>
+        </div> -->
 
         <!-- ── SET 2 — duplicates for infinite loop ── -->
-        <div class="testi-img-card"><img src="Assests/Images/Review1.PNG" alt="Dharshini"
+        <!-- <div class="testi-img-card"><img src="Assests/Images/Review1.PNG" alt="Dharshini"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="testi-placeholder" style="display:none"><i class="fas fa-user"></i>
             <p>Student 1</p>
@@ -2516,11 +2543,13 @@
             <p>Student 8</p>
           </div>
           <div class="testi-name-overlay"><strong>Student Name</strong><span>Student</span></div>
-        </div>
+        </div> -->
 
-      </div><!-- /testimonials-belt -->
-    </div><!-- /testimonials-outer -->
-  </section>
+      <!-- </div> -->
+      <!-- /testimonials-belt -->
+    <!-- </div> -->
+    <!-- /testimonials-outer -->
+  <!-- </section> -->
 
 
   <!-- ═══════════════════════════════════════════════════
@@ -2693,7 +2722,7 @@
           <div class="c-divider mt-4">reach me directly</div>
           <a class="contact-email" href=""><i class="fas fa-envelope" style="color:var(--accent)"></i><span
               class="__cf_email__"
-              data-cfemail="ddb0a8a9b5a8b6a8b0bcafe5ecedeceb9dbab0bcb4b1f3beb2b0"><span class="__cf_email__" data-cfemail="016c747569746a746c6073393031303741666c60686d2f626e6c">[email&#160;protected]</span></span></a>
+              data-cfemail="ddb0a8a9b5a8b6a8b0bcafe5ecedeceb9dbab0bcb4b1f3beb2b0"><span class="__cf_email__" data-cfemail="016c747569746a746c6073393031303741666c60686d2f626e6c"><span class="__cf_email__" data-cfemail="533e26273b2638263e32216b6263626513343e323a3f7d303c3e">[email&#160;protected]</span></span></span></a>
           <div class="mt-3" style="color:var(--muted);font-size:.9rem;"><i class="fas fa-phone me-2"
               style="color:var(--accent2)"></i>+91 6385820684</div>
           <div class="social-links">
@@ -2718,7 +2747,7 @@
 
   <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     (function () {
@@ -2747,7 +2776,7 @@
       document.querySelectorAll('.reveal').forEach(function (el) { revObs.observe(el); });
 
       /* ── TYPEWRITER ─────────────────────────────────────── */
-      var roles = ['Full Stack Developer', 'UI/UX Designer', 'Freelancer', 'Mentor'];
+      var roles = ['Full Stack Developer', 'UI/UX Designer', 'Freelancer', 'Technical Trainer'];
       var ri = 0, ci = 0, del = false, tw = document.getElementById('typewriter');
       function type() {
         if (!tw) return;
@@ -2857,7 +2886,7 @@
       document.addEventListener('keydown', function (e) {
         if (!tlBox || !tlBox.classList.contains('tl-open')) return;
         if (e.key === 'Escape') closeTL();
-        if (e.key === 'ArrowLeft') { tlCurrent = (tlCurrent - 1 + testiCards.length) % testiCards.length; openTL(tlCurrent); }
+                if (e.key === 'ArrowLeft') { tlCurrent = (tlCurrent - 1 + testiCards.length) % testiCards.length; openTL(tlCurrent); }
         if (e.key === 'ArrowRight') { tlCurrent = (tlCurrent + 1) % testiCards.length; openTL(tlCurrent); }
       });
 
