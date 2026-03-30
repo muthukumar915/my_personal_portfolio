@@ -675,285 +675,113 @@
       font-size: .9rem;
     }
 
-    /* SEMINARS */
+    /* SEMINARS — Glass Card Redesign */
     #seminars {
       background: var(--bg);
       overflow: hidden;
     }
 
-    .seminars-outer {
-      position: relative;
-      overflow: hidden;
-      padding: 16px 0 32px;
-    }
-
-    .seminars-outer::before,
-    .seminars-outer::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 180px;
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    .seminars-outer::before {
-      left: 0;
-      background: linear-gradient(90deg, var(--bg) 0%, transparent 100%);
-    }
-
-    .seminars-outer::after {
-      right: 0;
-      background: linear-gradient(-90deg, var(--bg) 0%, transparent 100%);
-    }
-
-    .seminars-belt {
+    /* Glass container */
+    .seminar-glass-section {
       display: flex;
-      gap: 28px;
-      width: max-content;
-      animation: semScroll 28s linear infinite;
-    }
-
-    .seminars-belt:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes semScroll {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .seminar-card {
-      flex: 0 0 370px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      overflow: hidden;
-      position: relative;
-      transition: border-color .4s, transform .4s, box-shadow .4s;
-      cursor: default;
-    }
-
-    .seminar-card:hover {
-      border-color: rgba(232, 255, 71, .3);
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, .7), 0 0 0 1px rgba(232, 255, 71, .1);
-    }
-
-    .seminar-img {
-      height: 190px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
+      flex-direction: column;
       align-items: center;
+      gap: 60px;
+      padding: 20px 0 40px;
+    }
+
+    .seminar-glass-row {
+      position: relative;
+      display: flex;
       justify-content: center;
+      align-items: center;
+      min-height: 380px;
+      padding: 30px 80px;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
-    .seminar-img-bg {
-      position: absolute;
-      inset: 0;
-      transition: transform .6s ease;
+    .seminar-glass-card {
+      position: relative;
+      width: 300px;
+      height: 380px;
+      background: linear-gradient(rgba(255,255,255,.12), transparent);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      box-shadow: 0 25px 40px rgba(0, 0, 0, .45);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      transition: 0.5s cubic-bezier(.25,.8,.25,1);
+      border-radius: 22px;
+      margin: 0 -75px;
+      backdrop-filter: blur(12px);
+      transform: rotate(calc(var(--r) * 1deg));
+      overflow: hidden;
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
-    .seminar-card:hover .seminar-img img {
-      transform: scale(1.08);
-    }
-
-    .seminar-img img {
+    .seminar-glass-card img.glass-bg-img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
+      z-index: 0;
       transition: transform .6s ease;
     }
 
-    .seminar-card:hover .seminar-img-bg {
+    .seminar-glass-card:hover img.glass-bg-img {
       transform: scale(1.08);
     }
 
-    .seminar-img-placeholder {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .seminar-img-placeholder i {
-      font-size: 2.8rem;
-      opacity: .18;
-    }
-
-    .seminar-img-placeholder span {
-      font-size: .7rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      opacity: .35;
-      font-weight: 600;
-    }
-
-    .seminar-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: rgba(0, 0, 0, .75);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 4px 12px;
-      font-size: .7rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--accent);
-      z-index: 2;
-    }
-
-    .seminar-num {
-      position: absolute;
-      top: 8px;
-      right: 14px;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 2.5rem;
-      opacity: .06;
-      line-height: 1;
-      z-index: 1;
-    }
-
-    .seminar-card::before {
+    .seminar-glass-card::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: opacity .4s;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,.15) 55%, transparent 100%);
+      z-index: 1;
     }
 
-    .seminar-card:hover::before {
-      opacity: 1;
+    .seminar-glass-row:hover .seminar-glass-card {
+      transform: rotate(0deg);
+      margin: 0 10px;
     }
 
-    .seminar-body {
-      padding: 22px 24px;
-    }
-
-    .seminar-meta {
+    .seminar-glass-card::before {
+      content: attr(data-text);
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 48px;
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(4px);
       display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-
-    .seminar-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: .76rem;
-      color: var(--muted);
-    }
-
-    .seminar-meta-item i {
-      color: var(--accent2);
-      font-size: .7rem;
-    }
-
-    .seminar-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.05rem;
-      line-height: 1.3;
-      margin-bottom: 7px;
-    }
-
-    .seminar-college {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      color: var(--accent);
-      font-size: .79rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .seminar-desc {
-      color: var(--muted);
-      font-size: .83rem;
-      line-height: 1.65;
-      margin-bottom: 16px;
-    }
-
-    .seminar-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .seminar-tag {
-      font-size: .68rem;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 20px;
-      background: rgba(232, 255, 71, .07);
-      color: var(--accent);
-      border: 1px solid rgba(232, 255, 71, .14);
-    }
-
-    .seminar-footer {
-      padding: 13px 24px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .seminar-students {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .79rem;
-      color: var(--muted);
-    }
-
-    .seminar-students strong {
-      color: var(--text);
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-    }
-
-    .seminar-avatars {
-      display: flex;
-    }
-
-    .s-av {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      border: 2px solid var(--surface);
-      display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: .58rem;
+      align-items: center;
+      color: #fff;
+      font-family: 'Syne', sans-serif;
       font-weight: 700;
-      margin-left: -7px;
+      font-size: .78rem;
+      letter-spacing: .5px;
+      z-index: 3;
+      border-top: 1px solid rgba(255,255,255,.1);
     }
 
-    .s-av:first-child {
-      margin-left: 0;
+    .seminar-glass-card .glass-icon {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 52px;
+      font-size: 2rem;
+      color: #fff;
+      opacity: .85;
+      text-shadow: 0 2px 12px rgba(0,0,0,.5);
     }
 
+    /* Keep old stat row styles */
     .seminar-stat-row {
       display: flex;
       gap: 0;
@@ -2017,6 +1845,12 @@
       .floating-badge {
         display: none;
       }
+
+      .seminar-glass-card {
+        width: 240px;
+        height: 310px;
+        margin: 0 -60px;
+      }
     }
 
     @media(max-width:768px) {
@@ -2036,6 +1870,34 @@
         flex: 0 0 190px;
         height: 230px;
       }
+
+      .seminar-glass-row {
+        padding: 20px 30px;
+        flex-wrap: wrap;
+        gap: 16px;
+        min-height: unset;
+      }
+
+      .seminar-glass-card {
+        width: 200px;
+        height: 260px;
+        margin: 0;
+        transform: rotate(0deg) !important;
+        flex: 0 0 calc(50% - 8px);
+      }
+
+      .seminar-glass-row:hover .seminar-glass-card {
+        margin: 0;
+      }
+
+      .seminar-stat-row {
+        flex-wrap: wrap;
+      }
+
+      .seminar-stat {
+        flex: 1 1 calc(50% - 1px);
+        min-width: 120px;
+      }
     }
 
     @media(max-width:576px) {
@@ -2046,6 +1908,17 @@
 
       .hero-title {
         letter-spacing: -1px;
+      }
+
+      .seminar-glass-card {
+        flex: 0 0 calc(50% - 8px);
+        width: auto;
+        height: 220px;
+      }
+
+      .seminar-glass-row {
+        gap: 12px;
+        padding: 10px 16px;
       }
     }
   </style>
@@ -2302,227 +2175,33 @@
         <div class="col-lg-7">
           <div class="section-label">College Outreach</div>
           <h2 class="section-title">Seminars &amp; Talks</h2>
-          <p class="section-sub">Sharing knowledge with the next generation — hover any card to pause.</p>
+          <p class="section-sub">Sharing knowledge with the next generation — hover the row to expand cards.</p>
         </div>
       </div>
-    </div>
-    <div class="seminars-outer reveal">
-      <div class="seminars-belt" id="seminarsBelt">
-        <div class="seminar-card">
-          <div class="seminar-img">
-            <img src="Assests/Images/Maha.jpeg" alt="Full Stack Seminar"
-              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-            <div class="seminar-img-bg" style="background:linear-gradient(135deg,#0d1117,#0a1628,#0d2137);display:none">
-            </div>
-            <div class="seminar-img-placeholder">
-              <!-- <i class="fas fa-chalkboard-teacher" style="color:var(--accent2)"></i> -->
-              <!-- <span>seminar1.jpg</span> -->
-            </div>
-            <span class="seminar-badge"></span>
-            <div class="seminar-num"></div>
+
+      <!-- Glass Card Row 1 -->
+      <div class="seminar-glass-section reveal">
+        <div class="seminar-glass-row">
+          <div class="seminar-glass-card" data-text="Git &amp; GitHub" style="--r:-15;">
+            <img class="glass-bg-img" src="Assests/Images/Maha.jpeg" alt="Git GitHub Seminar"
+              onerror="this.style.display='none'">
+            <i class="glass-icon fas fa-code-branch"></i>
           </div>
-          <div class="seminar-body">
-            <div class="seminar-meta">
-              <div class="seminar-meta-item"><i class="fas fa-calendar"></i>Sep 2024</div>
-              <div class="seminar-meta-item"><i class="fas fa-clock"></i>One day</div>
-            </div>
-            <div class="seminar-title">Git & GitHub: The Developer's Workflow Essentials</div>
-            <div class="seminar-college"><i class="fas fa-university"></i>Dr. Mahalingam College of Engineering and
-              Technology</div>
-            <div class="seminar-desc">Introduced students to version control concepts and walked them through
-              real-world Git workflows — from initializing a repo to branching, merging,
-              and pushing code to GitHub. Students left with a live GitHub profile and
-              their first repository</div>
-            <div class="seminar-tags"><span class="seminar-tag">Git</span><span class="seminar-tag">GitHub</span><span
-                class="seminar-tag">Vercel</span><span class="seminar-tag">Host</span></div>
+          <div class="seminar-glass-card" data-text="Frontend &amp; AI" style="--r:5;">
+            <img class="glass-bg-img" src="Assests/Images/Kongu.jpeg" alt="Frontend AI Seminar"
+              onerror="this.style.display='none'">
+            <i class="glass-icon fas fa-laptop-code"></i>
           </div>
-          <div class="seminar-footer">
-            <div class="seminar-students">
-              <div class="seminar-avatars"></div>
-              <div><strong>65+</strong> Students</div>
-            </div>
-            <div style="color:var(--accent);font-size:.78rem;font-weight:600;">MCA Dept.</div>
-          </div>
-        </div>
-        <div class="seminar-card">
-          <div class="seminar-img">
-            <img src="Assests/Images/Kongu.jpeg" alt="Frontend Workshop"
-              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-            <div class="seminar-img-bg" style="background:linear-gradient(135deg,#0d0d0a,#1a1400,#1a1a00);display:none">
-            </div>
-            <div class="seminar-img-placeholder">
-              <!-- <i class="fas fa-paint-brush" style="color:var(--accent)"></i> -->
-            </div>
-            <span class="seminar-badge">Talk</span>
-            <div class="seminar-num">02</div>
-          </div>
-          <div class="seminar-body">
-            <div class="seminar-meta">
-              <div class="seminar-meta-item"><i class="fas fa-calendar"></i>December 2025</div>
-              <div class="seminar-meta-item"><i class="fas fa-clock"></i>3 Days</div>
-            </div>
-            <div class="seminar-title">Frontend Development &amp; AI tools</div>
-            <div class="seminar-college"><i class="fas fa-university"></i>Kongunadu College of Engineering and
-              Technology</div>
-            <div class="seminar-desc">Conducted an interactive 3-day session at Kongunadu College with 2nd-year
-              students, sharing my frontend development journey. Taught smart strategies to build real-world projects
-              using AI tools and create strong portfolio projects.</div>
-            <div class="seminar-tags"><span class="seminar-tag">HTML&CSS</span><span
-                class="seminar-tag">JavaScript</span><span class="seminar-tag">React.js</span><span
-                class="seminar-tag">GitHub</span></div>
-          </div>
-          <div class="seminar-footer">
-            <div class="seminar-students">
-              <div><strong>90+</strong> Students</div>
-            </div>
-            <div style="color:var(--accent);font-size:.78rem;font-weight:600;">CSE Dept.</div>
-          </div>
-        </div>
-        <div class="seminar-card">
-          <div class="seminar-img">
-            <img src="Assests/Images/Akshaya.png" alt="Full Stack Talk"
-              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-            <div class="seminar-img-bg" style="background:linear-gradient(135deg,#0d0a0d,#140014,#1a0028);display:none">
-            </div>
-            <div class="seminar-img-placeholder">
-              <!-- <i class="fas fa-briefcase" style="color:#b47fff"></i> -->
-            </div>
-            <span class="seminar-badge">Talk</span>
-            <div class="seminar-num">03</div>
-          </div>
-          <div class="seminar-body">
-            <div class="seminar-meta">
-              <div class="seminar-meta-item"><i class="fas fa-calendar"></i>December 2025</div>
-              <div class="seminar-meta-item"><i class="fas fa-clock"></i>6 Days</div>
-            </div>
-            <div class="seminar-title">MERN Stack-From Scratch to &amp; Advance</div>
-            <div class="seminar-college"><i class="fas fa-university"></i>Akshaya College of Engineering and Technology
-            </div>
-            <div class="seminar-desc">Led an offline workshop at AEC, where students built a simple application and
-              deployed it using Vercel. Covered how to build real-world projects and create a strong portfolio to start
-              their tech careers.</div>
-            <div class="seminar-tags"><span class="seminar-tag">JavaScript</span><span
-                class="seminar-tag">Github</span><span class="seminar-tag">React.js</span><span
-                class="seminar-tag">Node.js</span></div>
-          </div>
-          <div class="seminar-footer">
-            <div class="seminar-students">
-              <div><strong>45+</strong> Students</div>
-            </div>
-            <div style="color:var(--accent);font-size:.78rem;font-weight:600;">CSE Dept</div>
-          </div>
-        </div>
-        <!-- Duplicates for loop -->
-        <div class="seminar-card">
-          <div class="seminar-img"><img src="Assests/Images/Maha.jpeg" alt=""
-              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-            <div class="seminar-img-bg" style="background:linear-gradient(135deg,#0d1117,#0a1628,#0d2137);display:none">
-            </div>
-            <div class="seminar-img-placeholder">
-              <!-- <i class="fas fa-chalkboard-teacher" style="color:var(--accent2)"></i> -->
-            </div><span class="seminar-badge">Talk</span>
-            <div class="seminar-num"></div>
-          </div>
-          <div class="seminar-body">
-            <div class="seminar-meta">
-              <div class="seminar-meta-item">
-                <i class="fas fa-calendar"></i>
-                Sep 2024
-              </div>
-              <div class="seminar-meta-item">
-                <i class="fas fa-clock"></i>One Day
-              </div>
-            </div>
-            <div class="seminar-title">Git & GitHub: The Developer's Workflow Essentials</div>
-            <div class="seminar-college">
-              <i class="fas fa-university"></i>
-              Dr. Mahalingam College of Engineering and Technology
-            </div>
-            <div class="seminar-desc">Introduced students to version control concepts and walked them through
-              real-world Git workflows — from initializing a repo to branching, merging,
-              and pushing code to GitHub. Students left with a live GitHub profile and
-              their first repository</div>
-            <div class="seminar-tags"><span class="seminar-tag">Git</span><span class="seminar-tag">GitHub</span><span
-                class="seminar-tag">Vercel</span><span class="seminar-tag">Host</span></div>
-          </div>
-          <div class="seminar-footer">
-            <div class="seminar-students">
-              <div class="seminar-avatars"></div>
-              <div><strong>65+</strong> Students</div>
-            </div>
-            <div style="color:var(--accent);font-size:.78rem;font-weight:600;">MCA Dept.</div>
-          </div>
-        </div>
-        <div class="seminar-card">
-          <div class="seminar-img"><img src="Assests/Images/Kongu.jpeg" alt=""
-              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-            <div class="seminar-img-bg" style="background:linear-gradient(135deg,#0d0d0a,#1a1400,#1a1a00);display:none">
-            </div>
-            <div class="seminar-img-placeholder"><i class="fas fa-paint-brush" style="color:var(--accent)"></i></div>
-            <span class="seminar-badge">Talk</span>
-            <div class="seminar-num">02</div>
-          </div>
-          <div class="seminar-body">
-            <div class="seminar-meta">
-              <div class="seminar-meta-item"><i class="fas fa-calendar"></i>December 2025</div>
-              <div class="seminar-meta-item"><i class="fas fa-clock"></i>3 Days</div>
-            </div>
-            <div class="seminar-title">Frontend Development &amp; AI tools</div>
-            <div class="seminar-college"><i class="fas fa-university"></i>Kongunadu College of Engineering and
-              Technology</div>
-            <div class="seminar-desc">Conducted an interactive 3-day session at Kongunadu College with 2nd-year
-              students.</div>
-            <div class="seminar-tags"><span class="seminar-tag">HTML&CSS</span><span
-                class="seminar-tag">JavaScript</span><span class="seminar-tag">React.js</span><span
-                class="seminar-tag">GitHub</span></div>
-          </div>
-          <div class="seminar-footer">
-            <div class="seminar-students">
-              <div><strong>90+</strong> Students</div>
-            </div>
-            <div style="color:var(--accent);font-size:.78rem;font-weight:600;">CSE Dept.</div>
-          </div>
-        </div>
-        <div class="seminar-card">
-          <div class="seminar-img"><img src="Assests/Images/Akshaya.png" alt=""
-              style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-            <div class="seminar-img-bg" style="background:linear-gradient(135deg,#0d0a0d,#140014,#1a0028);display:none">
-            </div>
-            <div class="seminar-img-placeholder"><i class="fas fa-briefcase" style="color:#b47fff"></i></div><span
-              class="seminar-badge">Talk</span>
-            <div class="seminar-num">03</div>
-          </div>
-          <div class="seminar-body">
-            <div class="seminar-meta">
-              <div class="seminar-meta-item"><i class="fas fa-calendar"></i>December 2025</div>
-              <div class="seminar-meta-item"><i class="fas fa-clock"></i>6 Days</div>
-            </div>
-            <div class="seminar-title">MERN Stack-From Scratch to &amp; Advance</div>
-            <div class="seminar-college"><i class="fas fa-university"></i>Akshaya College of Engineering and Technology
-            </div>
-            <div class="seminar-desc">Led an offline workshop at AEC, students built and deployed a real-world project.
-            </div>
-            <div class="seminar-tags"><span class="seminar-tag">JavaScript</span><span
-                class="seminar-tag">Github</span><span class="seminar-tag">React.js</span><span
-                class="seminar-tag">Node.js</span></div>
-          </div>
-          <div class="seminar-footer">
-            <div class="seminar-students">
-              <div><strong>45+</strong> Students</div>
-            </div>
-            <div style="color:var(--accent);font-size:.78rem;font-weight:600;">CSE Dept</div>
+          <div class="seminar-glass-card" data-text="MERN Stack" style="--r:25;">
+            <img class="glass-bg-img" src="Assests/Images/Akshaya.png" alt="MERN Stack Seminar"
+              onerror="this.style.display='none'">
+            <i class="glass-icon fas fa-layer-group"></i>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="seminar-stat-row reveal">
+
+      <!-- Stats Row -->
+      <div class="seminar-stat-row reveal" style="margin-top:56px">
         <div class="seminar-stat">
           <div class="seminar-stat-num" data-count="3">0</div>
           <div class="seminar-stat-label">Seminars Done</div>
@@ -2536,13 +2215,13 @@
           <div class="seminar-stat-label">Colleges Visited</div>
         </div>
         <div class="seminar-stat">
-          <div class="seminar-stat-num" data-count="60+">0</div>
+          <div class="seminar-stat-num" data-count="60">0</div>
           <div class="seminar-stat-label">Hours Taught</div>
         </div>
       </div>
+
     </div>
   </section>
-
   <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
@@ -3014,7 +2693,7 @@
           <div class="c-divider mt-4">reach me directly</div>
           <a class="contact-email" href=""><i class="fas fa-envelope" style="color:var(--accent)"></i><span
               class="__cf_email__"
-              data-cfemail="ddb0a8a9b5a8b6a8b0bcafe5ecedeceb9dbab0bcb4b1f3beb2b0">muthukumar81016@gmail.com</span></a>
+              data-cfemail="ddb0a8a9b5a8b6a8b0bcafe5ecedeceb9dbab0bcb4b1f3beb2b0"><span class="__cf_email__" data-cfemail="016c747569746a746c6073393031303741666c60686d2f626e6c">[email&#160;protected]</span></span></a>
           <div class="mt-3" style="color:var(--muted);font-size:.9rem;"><i class="fas fa-phone me-2"
               style="color:var(--accent2)"></i>+91 6385820684</div>
           <div class="social-links">
@@ -3039,7 +2718,7 @@
 
   <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     (function () {
@@ -3184,7 +2863,5 @@
 
     })();
   </script>
-
 </body>
-
 </html>
